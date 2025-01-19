@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style/style.css">
     <title>Login</title>
 </head>
-<body>
+<body class="auth-page"> <!-- Adding the class "auth-page" here -->
       <div class="container">
         <div class="box form-box">
             <?php 
@@ -39,8 +39,6 @@
                     header("Location: home.php");
                 }
               }else{
-
-            
             ?>
             <header>Login</header>
             <form action="" method="post">
@@ -55,11 +53,10 @@
                 </div>
 
                 <div class="field">
-                    
                     <input type="submit" class="btn" name="submit" value="Login" required>
                 </div>
                 <div class="links">
-                    Don't have account? <a href="register.php">Sign Up Now</a>
+                    Don't have an account? <a href="register.php">Sign Up Now</a>
                 </div>
             </form>
         </div>
