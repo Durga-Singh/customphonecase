@@ -199,7 +199,7 @@ body.auth-page::before {
 
 .left-links a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .logo a {
@@ -353,6 +353,7 @@ body.auth-page::before {
 .image-area {
     flex: 1 1 40%;
     text-align: center;
+    margin-top: 43px;
 }
 
 .image-area img {
@@ -509,6 +510,7 @@ body.auth-page::before {
     border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    margin-left: 32px;
 }
 
 canvas {
@@ -581,7 +583,30 @@ button:hover {
     border-radius: 4px;
     cursor: pointer;
   }
+
+
   
+  .color-option {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 5px;
+    border: 2px solid #4e4e4e; 
+  }
+
+  .color-option.black {
+    background-color: black;
+  }
+
+  .color-option.navy {
+    background-color: navy;
+  }
+
+  .color-option.maroon {
+    background-color: maroon;
+  }
+
 /* Responsive adjustments if needed */
 @media (max-width: 933px) {
     .steps {
@@ -699,4 +724,5 @@ button:hover {
     .section1{
         width: 360px;
     }
-}
+
+    }
