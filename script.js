@@ -10,7 +10,7 @@ function handleFile(file, callback) {
     const reader = new FileReader();
     reader.onload = (event) => {
         localStorage.setItem('uploadedImage', event.target.result); // Store image in localStorage
-        
+
         setTimeout(() => { // Delay for animation effect
             if (callback) {
                 callback();
@@ -84,36 +84,50 @@ if (customizeUploadImage) {
 }
 
 // Phone case customization with Fabric.js
-const canvas = new fabric.Canvas('canvas', {
-    width: 200,
-    height: 400,
-    selection: true,
-    backgroundColor: 'transparent',
-    transparentCorners: false
-});
+window.onload = function () {
+    const canvas = new fabric.Canvas('canvas', {
+        width: 200,
+        height: 400,
+        selection: true,
+        backgroundColor: 'transparent',
+        transparentCorners: false,
+    });
 
-// Upload image to canvas
-document.getElementById('upload').addEventListener('change', function (event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            fabric.Image.fromURL(e.target.result, function (img) {
-                img.scaleToWidth(canvas.width);
-                img.scaleToHeight(canvas.height);
-                img.set({
-                    left: 0,
-                    top: 0,
-                    selectable: false,
-                    evented: false
-                });
-
-                canvas.clear();
-                canvas.add(img);
-                canvas.sendToBack(img);
-                canvas.renderAll();
+    var uploadedImageData = localStorage.getItem('uploadedImage');
+    if (uploadedImageData) {
+        fabric.Image.fromURL(uploadedImageData, function (img) {
+            img.scaleToWidth(canvas.width);
+            img.scaleToHeight(canvas.height);
+            img.set({
+                left: 0,
+                top: 0,
+                selectable: false,
+                evented: false,
             });
-        };
-        reader.readAsDataURL(file);
+            canvas.add(img);
+            canvas.sendToBack(img);
+            canvas.renderAll();
+        });
     }
+};
+
+
+
+
+// Select the canvas and the parent card container
+const canvas = document.getElementById('canvas');
+const card = document.getElementById('card');
+const colorOptions = document.querySelectorAll('.color-option');
+
+// Loop through each color option
+colorOptions.forEach(option => {
+    option.addEventListener('click', () => {
+        // Change the card background color
+        card.style.backgroundColor = option.dataset.color;
+
+        // Hide the canvas
+        if (canvas) {
+            canvas.style.display = 'none';
+        }
+    });
 });
