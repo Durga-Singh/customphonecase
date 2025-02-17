@@ -32,7 +32,7 @@
                     $res_id = $result['Id'];
                 }
                 echo "<a href='edit.php?Id=$res_id'><i class='fas fa-user-circle profile-icon-logo'></i></a>";
-              ?>
+                ?>
             </div>
         </div>
     </nav>
@@ -58,10 +58,50 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="card">
-            <img src="image.png" alt="Phone Case" class="phone-case">
-            <canvas id="canvas"></canvas>
+    <div class="parent-container">
+        <div class="section1">
+            <div class="container">
+                <div class="card">
+                    <img src="image.png" alt="Phone Case" class="phone-case">
+                    <canvas id="canvas"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="section2">
+            <h2>Customize your case</h2>
+            <div class="option">
+                <label for="color">Color:</label>
+                <select id="color">
+                    <option value="black">Black</option>
+                    <option value="blue">Blue</option>
+                </select>
+            </div>
+            <div class="option">
+                <label for="model">Model:</label>
+                <select id="model">
+                    <option value="iphoneX">iPhone X</option>
+                    <option value="iphone11">iPhone 11</option>
+                </select>
+            </div>
+            <div class="option">
+                <label for="material">Material:</label>
+                <select id="material">
+                    <option value="silicone">Silicone</option>
+                    <option value="polycarbonate">Soft Polycarbonate</option>
+                </select>
+            </div>
+            <div class="option">
+                <label for="finish">Finish:</label>
+                <select id="finish">
+                    <option value="glossy">Glossy</option>
+                    <option value="matte">Matte</option>
+                </select>
+            </div>
+            <div class="price">
+                $12.00
+            </div>
+            <button class="continue-button">Continue</button>
         </div>
     </div>
 
@@ -93,7 +133,7 @@
             }
         };
     </script>
-   
+
     <script src="script.js"></script>
 </body>
 

@@ -492,19 +492,21 @@ body.auth-page::before {
     height: 400px;
 }
 
-.phone-case {
+.phone-case{
+    left: -1px;
+    right: 0px;
     position: absolute;
-    width: 200px;
+    width: 197px;
     height: 400px;
     z-index: 2;
 }
 
 .card {
     position: relative;
-    width: 200px;
-    height: 400px;
-    background: #131f76; /* Set a visible color */
-    border-radius: 32px;
+    width: 195px;
+    height: 399px;
+    background: #131f76;
+    border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
@@ -536,7 +538,51 @@ button:hover {
     background: #0056b3;
 }
 
+.parent-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 43px 140px;
+}
 
+.section1{
+    padding: 0px 30px 0px 0px;
+    background-color: #e5e7eb;
+    width: 40vw;
+    height: 600px;
+    /* margin: 0px 298px 0px 32px; */
+    position: relative;
+    width: 651px;
+    height: 518px;
+}
+
+.section2 {
+    padding: 20px;
+    background-color: white;
+    width: 358px;
+  }.option {
+    margin-bottom: 15px;
+  }.option label {
+    display: block;
+    margin-bottom: 5px;
+  }.option select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }.price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }.continue-button {
+    background-color: #27ae60;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
   
 /* Responsive adjustments if needed */
 @media (max-width: 933px) {
@@ -648,5 +694,8 @@ button:hover {
 
   .step-separator {
         display: none; /* Hide separators on mobile */
+    }
+    .parent-container{
+        flex-direction: column;
     }
 }
