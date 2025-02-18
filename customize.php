@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customize Your Case</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
@@ -79,22 +80,22 @@
             <div class="option">
                 <label for="model">Model:</label>
                 <select id="model">
-                    <option value="iphoneX">iPhone X</option>
-                    <option value="iphone11">iPhone 11</option>
+                    <option value="iphoneX">iPhone 12 pro</option>
+                    <option value="iphone11">iPhone 12</option>
                 </select>
             </div>
             <div class="option">
                 <label for="material">Material:</label>
                 <select id="material">
-                    <option value="silicone">Silicone - ₹0.00</option>
-                    <option value="polycarbonate">Soft Polycarbonate - ₹0.00</option>
+                    <option value="silicone">Silicone - ₹100.00</option>
+                    <option value="polycarbonate">Soft Polycarbonate - ₹120.00</option>
                 </select>
             </div>
             <div class="option">
                 <label for="finish">Finish:</label>
                 <select id="finish">
-                    <option value="glossy">Glossy - ₹0.00</option>
-                    <option value="matte">Matte - ₹0.00</option>
+                    <option value="glossy">Glossy - ₹150.00</option>
+                    <option value="matte">Matte - ₹200.00</option>
                 </select>
             </div>
             <div class="price">
@@ -103,11 +104,29 @@
             <button class="continue-button">Continue <i class="fas fa-arrow-right"></i></button>
         </div>
     </div>
+    
+    <button id="downloadButton">Download Design</button>
 
     <script>
-       
-    </script>
+        document.getElementById("downloadButton").addEventListener("click", function() {
+            const caseContainer = document.getElementById("card"); // Capture the full case design
 
+            html2canvas(caseContainer, {
+                backgroundColor: null
+            }).then(canvas => {
+                let image = canvas.toDataURL("image/png"); // Convert canvas to image
+
+                // Store in localStorage for summary page
+                localStorage.setItem("finalCaseImage", image);
+
+                // Trigger download
+                let link = document.createElement("a");
+                link.href = image;
+                link.download = "custom_phone_case.png";
+                link.click();
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 

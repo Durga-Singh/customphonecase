@@ -58,6 +58,7 @@
                     </div>
                 </div>
                 <div class="image-area">
+                    <img src="your-image.png" alt="your-image" class="your-image" style=" width: 163px;">
                     <img src="dog.png" alt="Custom Phone Case">
                 </div>
             </div>

@@ -111,7 +111,20 @@ window.onload = function () {
     }
 };
 
+const modelSelect = document.getElementById('model');
+const phoneCaseImage = document.getElementById('phoneCaseImage');
 
+// Add an event listener to the model dropdown
+modelSelect.addEventListener('change', () => {
+    // Check if iPhone 11 is selected
+    if (modelSelect.value === 'iphone11') {
+        // Change the image source to image2.png
+        phoneCaseImage.src = 'image2.png';
+    } else {
+        // Reset to the original image if needed
+        phoneCaseImage.src = 'image.png';
+    }
+});
 
 
 // Select the canvas and the parent card container
@@ -131,3 +144,89 @@ colorOptions.forEach(option => {
         }
     });
 });
+
+
+// Define base price
+const basePrice = 500; // Example base price for the phone case
+
+// Define additional prices for materials and finishes
+const materialPrices = {
+    silicone: 100,
+    polycarbonate: 120,
+};
+
+const finishPrices = {
+    glossy: 150,
+    matte: 200,
+};
+
+// Select elements
+const materialSelect = document.getElementById('material');
+const finishSelect = document.getElementById('finish');
+const priceDisplay = document.querySelector('.price');
+
+// Function to calculate and update the total price
+function updateTotalPrice() {
+    const selectedMaterial = materialSelect.value;
+    const selectedFinish = finishSelect.value;
+
+    const materialPrice = materialPrices[selectedMaterial] || 0;
+    const finishPrice = finishPrices[selectedFinish] || 0;
+
+    const totalPrice = basePrice + materialPrice + finishPrice;
+
+    priceDisplay.textContent = `₹${totalPrice.toFixed(2)}`; // Update the displayed price
+}
+
+// Attach event listeners to dropdowns
+materialSelect.addEventListener('change', updateTotalPrice);
+finishSelect.addEventListener('change', updateTotalPrice);
+
+// Initialize the price on page load
+updateTotalPrice();
+
+
+const continueButton = document.querySelector('.continue-button');
+
+continueButton.addEventListener('click', () => {
+    // Disable the button to prevent multiple clicks
+    continueButton.disabled = true;
+
+    // Start the animation with "Saving"
+    continueButton.innerHTML = 'Saving<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>';
+
+    // Add animation class
+    continueButton.classList.add('saving-animation');
+
+    // Simulate a save process (e.g., redirect after 2 seconds)
+    setTimeout(() => {
+        // Example: Redirect to summary page (optional)
+        window.location.href = 'summary.php';
+    }, 2000); // Adjust the time as needed
+});
+
+
+//design saving
+
+
+continueButton.addEventListener('click', () => {
+    // Get the selected customization details
+    const selectedColor = document.getElementById('card').style.backgroundColor;
+    const uploadedImage = localStorage.getItem('uploadedImage'); // Get uploaded image
+
+    // Store the design in localStorage
+    localStorage.setItem('caseColor', selectedColor);
+    localStorage.setItem('finalCaseImage', uploadedImage);
+
+    // Animate the button (Saving... with wavy effect)
+    continueButton.disabled = true;
+    continueButton.innerHTML = 'Saving<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>';
+    continueButton.classList.add('saving-animation');
+
+    // Redirect to summary page after a short delay
+    setTimeout(() => {
+        window.location.href = 'summary.php';
+    }, 2000);
+});
+
+

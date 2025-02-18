@@ -304,6 +304,11 @@ body.auth-page::before {
     /* Makes it a block element for better spacing */
 }
 
+.your-image{
+    display: flex;
+    width: 163px;
+}
+
 .custom-case-content h1 {
     font-size: 36px;
     margin-bottom: 20px;
@@ -359,7 +364,7 @@ body.auth-page::before {
 .image-area img {
     max-width: 100%;
     /* Keep this to ensure it scales down on smaller screens */
-    width: 400px;
+    width: 294px;
     /* Adjust this value to your desired width */
     height: auto;
 }
@@ -583,8 +588,6 @@ button:hover {
     border-radius: 4px;
     cursor: pointer;
   }
-
-
   
   .color-option {
     display: inline-block;
@@ -606,6 +609,32 @@ button:hover {
   .color-option.maroon {
     background-color: maroon;
   }
+
+  /*wavy dont animation*/
+
+  .saving-animation .dot {
+    display: inline-block;
+    animation: wave 1.5s infinite;
+}
+
+.saving-animation .dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.saving-animation .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.saving-animation .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes wave {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
 
 /* Responsive adjustments if needed */
 @media (max-width: 933px) {
