@@ -205,28 +205,6 @@ continueButton.addEventListener('click', () => {
     }, 2000); // Adjust the time as needed
 });
 
-
-//design saving
-
-
-continueButton.addEventListener('click', () => {
-    // Get the selected customization details
-    const selectedColor = document.getElementById('card').style.backgroundColor;
-    const uploadedImage = localStorage.getItem('uploadedImage'); // Get uploaded image
-
-    // Store the design in localStorage
-    localStorage.setItem('caseColor', selectedColor);
-    localStorage.setItem('finalCaseImage', uploadedImage);
-
-    // Animate the button (Saving... with wavy effect)
-    continueButton.disabled = true;
-    continueButton.innerHTML = 'Saving<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>';
-    continueButton.classList.add('saving-animation');
-
-    // Redirect to summary page after a short delay
-    setTimeout(() => {
-        window.location.href = 'summary.php';
-    }, 2000);
-});
+//summary
 
 

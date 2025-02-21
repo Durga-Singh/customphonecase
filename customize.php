@@ -101,29 +101,31 @@
             <div class="price">
                 ₹0.00
             </div>
-            <button class="continue-button">Continue <i class="fas fa-arrow-right"></i></button>
+            <button class="continue-button" id="continue-button">Continue <i class="fas fa-arrow-right"></i></button>
         </div>
     </div>
-    
-    <button id="downloadButton">Download Design</button>
+
 
     <script>
-        document.getElementById("downloadButton").addEventListener("click", function() {
-            const caseContainer = document.getElementById("card"); // Capture the full case design
+        document.getElementById("continue-button").addEventListener("click", function() {
+            const caseContainer = document.getElementById("card");
 
             html2canvas(caseContainer, {
                 backgroundColor: null
             }).then(canvas => {
-                let image = canvas.toDataURL("image/png"); // Convert canvas to image
+                let image = canvas.toDataURL("image/png");
+                const modelSelect = document.getElementById('model');
+                localStorage.setItem("selectedModel", modelSelect.value);
+                const materialSelect = document.getElementById('material');
+                const finishSelect = document.getElementById('finish');
+                localStorage.setItem("selectedMaterial", materialSelect.value);
+                localStorage.setItem("selectedFinish", finishSelect.value);
 
                 // Store in localStorage for summary page
                 localStorage.setItem("finalCaseImage", image);
 
-                // Trigger download
-                let link = document.createElement("a");
-                link.href = image;
-                link.download = "custom_phone_case.png";
-                link.click();
+                // Instead of triggering download, redirect to summary page
+                window.location.href = 'summary.php';
             });
         });
     </script>

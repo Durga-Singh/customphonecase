@@ -35,6 +35,16 @@ body {
     font-weight: bold;
 }
 
+#step3_1{
+    color:#888;
+    font-weight: unset;
+}
+
+#step3_3{
+    color:#27ae60;
+    font-weight: bold;
+}
+
 .uploading-message {
     text-align: center;
     font-size: 18px;
@@ -549,7 +559,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 43px 140px;
+    margin: 25px 140px;
 }
 
 .section1{
@@ -559,7 +569,7 @@ button:hover {
     height: 600px;
     /* margin: 0px 298px 0px 32px; */
     position: relative;
-    height: 518px;
+    height: 535px;
 }
 
 .section2 {
@@ -577,7 +587,6 @@ button:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
   }.price {
-    font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
   }.continue-button {
@@ -633,6 +642,99 @@ button:hover {
     0% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
     100% { transform: translateY(0); }
+}
+
+
+/*summary*/
+
+.summary_container {
+    display: flex;
+        /* align-items: flex-start; */
+        /* max-width: 977px; */
+        margin: 20px 152px 0px 154px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        justify-content: space-around;
+}
+
+#case-summary{
+    margin-top: 28px;
+}
+
+#case-summary img{
+    width: 197px;
+    height: 400px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.status {
+    color: #5cb85c; /* Green for "In stock" */
+    margin-bottom: 20px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row; /* Align items horizontally */
+    gap: 20px; 
+}
+
+.highlights, .materials {
+    flex: 1;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.price {
+    margin-top: 20px;
+    border-top: 1px solid #ddd; /* Light gray separator */
+    padding-top: 10px;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px; /* Reduced margin for clarity */
+}
+
+.order-total {
+    font-weight: bold;
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+#summaryDownloadButton{
+    background-color: rgb(218, 112, 214); /* Green button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.checkout-button {
+    background-color: #5cb85c; /* Green button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    float: right; /* Align to the right */
+}
+
+.checkout-button:hover {
+    background-color: #4cae4c; /* Darker green on hover */
 }
 
 
