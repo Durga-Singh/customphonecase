@@ -205,6 +205,25 @@ continueButton.addEventListener('click', () => {
     }, 2000); // Adjust the time as needed
 });
 
-//summary
 
+// resizable 
+window.onload = function () {
+    const canvas = new fabric.Canvas('canvas', {
+        width: 200,
+        height: 400,
+        selection: true,
+        backgroundColor: 'transparent',
+        transparentCorners: false,
+    });
 
+    var uploadedImageData = localStorage.getItem('uploadedImage');
+    if (uploadedImageData) {
+        fabric.Image.fromURL(uploadedImageData, function (img) {
+            img.scaleToWidth(canvas.width);
+            img.scaleToHeight(canvas.height);
+            canvas.add(img);
+            canvas.setActiveObject(img); // Make the image active for immediate interaction
+            canvas.renderAll();
+        });
+    }
+};

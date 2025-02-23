@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-
 <body id="customize">
     <nav class="nav">
         <div class="logo">
@@ -33,7 +31,7 @@
                     $res_id = $result['Id'];
                 }
                 echo "<a href='edit.php?Id=$res_id'><i class='fas fa-user-circle profile-icon-logo'></i></a>";
-                ?>
+              ?>
             </div>
         </div>
     </nav>
@@ -105,7 +103,6 @@
         </div>
     </div>
 
-
     <script>
         document.getElementById("continue-button").addEventListener("click", function() {
             const caseContainer = document.getElementById("card");
@@ -131,5 +128,4 @@
     </script>
     <script src="script.js"></script>
 </body>
-
 </html>
