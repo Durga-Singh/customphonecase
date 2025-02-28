@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <button id="summaryDownloadButton">Download Design</button>
-                <button class="checkout-button">Check out →</button>
+                <button onclick="redirectToPage()" class="checkout-button">Check out →</button>
             </div>
         </div>
 
@@ -186,7 +186,9 @@
     // Update order total
     updateOrderTotal();
 });
-
+function redirectToPage() {
+            window.location.href = "checkout.php"; // Change this to your desired page
+        }
         </script>
 
     </body>

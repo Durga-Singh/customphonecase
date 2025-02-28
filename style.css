@@ -105,7 +105,11 @@ body.auth-page::before {
     width: 100%;
     max-width: 400px;
     text-align: center;
-    margin-top: 68px;
+    margin-top: 100px;
+}
+
+.logout{
+    margin-bottom: 30px;
 }
 
 .form-box header {
@@ -261,12 +265,13 @@ body.auth-page::before {
     /* Icon color */
 }
 
+
+
 .logout-btn {
     padding: 10px 20px;
     /* Adds padding to top/bottom (10px) and left/right (20px) */
     background-color: #27ae60;
     /* Red color for the logout button */
-    border: none;
     border-radius: 5px;
     color: white;
     font-size: 16px;
@@ -742,6 +747,10 @@ ul {
     background-color: #4cae4c; /* Darker green on hover */
 }
 
+
+
+
+
 @media (max-width: 500px) {
     .checkout-button{
         float: left;
@@ -751,6 +760,9 @@ ul {
 
 /* Responsive adjustments if needed */
 @media (max-width: 932px) {
+
+    
+
     .summary_container {
         display: flex;
         flex-direction: column; /* Default to column layout on smaller screens */

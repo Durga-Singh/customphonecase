@@ -68,6 +68,10 @@ session_start();
         </div>
     <?php } ?>
     </div>
+
+    <script>
+        
+    </script>
 </body>
 
 </html>

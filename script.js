@@ -207,23 +207,21 @@ continueButton.addEventListener('click', () => {
 
 
 // resizable 
-window.onload = function () {
-    const canvas = new fabric.Canvas('canvas', {
-        width: 200,
-        height: 400,
-        selection: true,
-        backgroundColor: 'transparent',
-        transparentCorners: false,
-    });
 
-    var uploadedImageData = localStorage.getItem('uploadedImage');
-    if (uploadedImageData) {
-        fabric.Image.fromURL(uploadedImageData, function (img) {
-            img.scaleToWidth(canvas.width);
-            img.scaleToHeight(canvas.height);
-            canvas.add(img);
-            canvas.setActiveObject(img); // Make the image active for immediate interaction
-            canvas.renderAll();
-        });
+
+function updateOrderTotal() {
+    let total = 500;
+
+    if (selectedMaterial) {
+        total += selectedMaterial === 'silicone' ? 100 : 120;
     }
-};
+    if (selectedFinish) {
+        total += selectedFinish === 'glossy' ? 150 : 200;
+    }
+
+    // Assuming you have an element to display total price
+    const totalPriceElement = document.querySelector('.order-total');
+    if (totalPriceElement) {
+        totalPriceElement.textContent = `Total: ₹${total.toFixed(2)}`;
+    }
+}
