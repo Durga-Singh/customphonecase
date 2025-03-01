@@ -85,7 +85,7 @@ if (isset($_POST['submit'])) {
 
     <script>
         function redirectToPage() {
-            window.location.href = "view_image.php"; // Change this to your desired page
+            window.location.href = "my_orders.php"; // Change this to your desired page
         }
     </script>
 </body>

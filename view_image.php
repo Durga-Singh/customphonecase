@@ -1,35 +1,54 @@
 <?php
-include('config.php');
+include 'config.php'; // Include database connection
 
-if (isset($_GET['payment_id'])) {
-    $payment_id = mysqli_real_escape_string($con, $_GET['payment_id']); // Sanitize input
+// Fetch all images from the database
+$sql = "SELECT image FROM payment";
+$result = $con->query($sql);
+?>
 
-    $query = mysqli_query($con, "SELECT image FROM payment WHERE id = '$payment_id'");
-    if ($query) {
-        $result = mysqli_fetch_assoc($query);
-        if ($result) {
-            $imageData = $result['image'];
-            ?>
-
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <title>View Image</title>
-            </head>
-            <body>
-                <h1>Custom Phone Case Image</h1>
-                <img src="<?php echo $imageData; ?>" alt="Custom Case">
-            </body>
-            </html>
-
-            <?php
-        } else {
-            echo "Error: No image found for payment ID: " . $payment_id;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Uploaded Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
         }
-    } else {
-        echo "Error: " . mysqli_error($con);
-    }
-} else {
-    echo "Error: Payment ID not provided.";
-}
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .image-container img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Uploaded Images</h1>
+    <div class="image-container">
+        <?php
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo '<img src="' . htmlspecialchars($row['image']) . '" alt="Uploaded Image">';
+            }
+        } else {
+            echo "<p>No images uploaded yet.</p>";
+        }
+        ?>
+    </div>
+</body>
+</html>
+
+<?php
+$con->close();
 ?>

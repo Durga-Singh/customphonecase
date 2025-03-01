@@ -64,9 +64,11 @@
         echo "<img src='' id='finalImage' alt='Case Image'>";
         ?>
         <p style="font-weight: bold; margin-top:10px">₹ <span class="price order-total"></span></p>
-        <input type="textbox" name="name" id="name" placeholder="Enter your name"><br><br>
+        
         <input type="button" name="btn" id="btn" value="Pay Now" onclick="pay_now()">
     </div>
+
+    
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -128,8 +130,7 @@
                 type: 'post',
                 url: 'payment_process.php',
                 data: { 
-                    amt: amt, 
-                    name: name, 
+                    amt: amt,  
                     model: model, // Pass selected model
                     material: material, // Pass selected material
                     finish: finish, // Pass selected finish
@@ -161,7 +162,7 @@
         }
     </script>
 
-<a href="view_image.php?payment_id=pay_Q0pYXCrrC4Gnqc">View Image</a>
+<a href="view_image.php">View Image</a>
 </body>
 <script src="script.js"></script>
 </html>
