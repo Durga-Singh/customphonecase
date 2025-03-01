@@ -161,8 +161,6 @@
             });
         }
     </script>
-
-<a href="view_image.php">View Image</a>
 </body>
 <script src="script.js"></script>
 </html>
